@@ -1,5 +1,8 @@
 Bonjour {{ title }}
 
-<amb-poney (win)="handleWin($event)" [poneyData]="poneyTable[0]"></amb-poney>
-<amb-poney (win)="handleWin($event)" [poneyData]="poneyTable[1]"></amb-poney>
-<amb-poney [poneyData]="poneyTable[2]"></amb-poney>
+<amb-poney
+  *ngFor="let poneyData of poneyTable"
+  (win)="handleWin($event)"
+  [poneyData]="poneyData"
+  #poneyComponents
+></amb-poney>

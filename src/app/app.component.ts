@@ -1,5 +1,6 @@
+import { PoneyComponent } from './components/poney/poney.component';
 import { PoneyData } from './models/poney-data.model';
-import { Component } from '@angular/core';
+import { Component, ViewChildren, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AMBIENT-IT !';
+  @ViewChildren('poneyComponents') poneyComponentList: QueryList<PoneyComponent>
 
   handleWin(poneyData: PoneyData) {
     console.log('WINNER : ', poneyData.name)
+    this.poneyComponentList.forEach((poneyComponent) => {
+      poneyComponent.stopRunning()
+    })
   }
 
   poneyTable: PoneyData[] = [

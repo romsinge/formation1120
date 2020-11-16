@@ -1,0 +1,10 @@
+.container {
+  width: 10%;
+  position: relative;
+  left: 0;
+  transition: left 1s linear;
+}
+
+.container img {
+  width: 100%;
+}
