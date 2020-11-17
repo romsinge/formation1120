@@ -1,4 +1,6 @@
-Bonjour {{ title }}
+<mat-toolbar color="primary">
+  Bonjour {{ title }}
+</mat-toolbar>
 
 <amb-poney
   *ngFor="let poneyData of poneyTable; let i = index"
@@ -8,3 +10,5 @@ Bonjour {{ title }}
   [ambRainbow]="!(i%2)"
   color="beige"
 ></amb-poney>
+
+<amb-poney-create></amb-poney-create>
