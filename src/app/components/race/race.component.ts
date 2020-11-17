@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList, Input } from '@angular/core';
 import { PoneyData } from 'src/app/models/poney-data.model';
 import { RaceData } from 'src/app/models/race-data.model';
+import { DataService } from 'src/app/services/data.service';
 import { PoneyComponent } from '../poney/poney.component';
 
 @Component({
@@ -20,27 +21,12 @@ export class RaceComponent {
     })
   }
 
-  poneyTable: PoneyData[] = [
-    {
-      id: '0',
-      name: "Romain",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-yellow-running.gif"
-    },
-    {
-      id: '1',
-      name: "Antoine",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-purple-running.gif"
-    },
-    {
-      id: '2',
-      name: "Xavier",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-orange-running.gif"
-    },
-    {
-      id: '3',
-      name: "Valerie",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-green-running.gif"
-    }
-  ]
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.poneyTable = this.dataService.poneyTable
+  }
+
+  poneyTable: PoneyData[] = []
 
 }
