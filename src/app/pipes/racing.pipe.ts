@@ -7,9 +7,9 @@ import { PoneyData } from '../models/poney-data.model';
 export class RacingPipe implements PipeTransform {
 
   transform(poneyTable: PoneyData[], poneyIds: string[]): PoneyData[] {
-    return poneyTable && poneyTable.length ? poneyTable.filter(poneyData => {
-      return poneyIds.includes(poneyData.id)
-    }) : []
+    return poneyTable && poneyTable.length ? 
+      poneyTable.filter(poneyData => poneyIds.includes(poneyData.id))
+      : []
   }
 
 }
