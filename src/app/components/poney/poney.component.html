@@ -1,4 +1,4 @@
-<div [ngStyle]="{ left: poneyData.distance + '%' }" class="container">
+<div [ngStyle]="{ left: poneyData.distance | unit }" class="container">
   <strong>{{ poneyData.name }}</strong>
   <img [src]="poneyData.image" />
 </div>

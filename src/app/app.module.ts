@@ -7,6 +7,7 @@ import { RainbowDirective } from './directives/rainbow.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PoneyCreateComponent } from './components/poney-create/poney-create.component'
 import { MaterialComponentsModule } from './modules/material-components/material-components.module';
+import { UnitPipe } from './pipes/unit.pipe';
 
 
 
@@ -15,7 +16,8 @@ import { MaterialComponentsModule } from './modules/material-components/material
     AppComponent,
     PoneyComponent,
     RainbowDirective,
-    PoneyCreateComponent
+    PoneyCreateComponent,
+    UnitPipe
   ],
   imports: [
     BrowserModule,
