@@ -2,17 +2,6 @@
   Bonjour {{ title }}
 </mat-toolbar>
 
-<amb-poney
-  *ngFor="let poneyData of poneyTable; let i = index"
-  (win)="handleWin($event)"
-  [poneyData]="poneyData"
-  #poneyComponents
-  [ambRainbow]="!(i%2)"
-  color="beige"
-></amb-poney>
-
-<amb-poney-create></amb-poney-create>
-
-<pre>
-  {{ poneyTable | json }}
-</pre>
+<amb-race
+  *ngFor="let raceData of raceTable" [raceData]="raceData"
+></amb-race>

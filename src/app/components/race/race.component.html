@@ -1,0 +1,16 @@
+<mat-toolbar>{{ raceData.name }}</mat-toolbar>
+
+<amb-poney
+  *ngFor="let poneyData of poneyTable | racing:raceData.poneyIds | orderBy:'name'; let i = index"
+  (win)="handleWin($event)"
+  [poneyData]="poneyData"
+  #poneyComponents
+  [ambRainbow]="!(i%2)"
+  color="beige"
+></amb-poney>
+
+<amb-poney-create></amb-poney-create>
+
+<!-- <pre>
+{{ poneyTable | json }}
+</pre> -->

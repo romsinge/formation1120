@@ -1,6 +1,7 @@
 import { PoneyComponent } from './components/poney/poney.component';
 import { PoneyData } from './models/poney-data.model';
 import { Component, ViewChildren, QueryList } from '@angular/core';
+import { RaceData } from './models/race-data.model';
 
 @Component({
   selector: 'app-root',
@@ -9,30 +10,16 @@ import { Component, ViewChildren, QueryList } from '@angular/core';
 })
 export class AppComponent {
   title = 'AMBIENT-IT !';
-  @ViewChildren('poneyComponents') poneyComponentList: QueryList<PoneyComponent>
-
-  handleWin(poneyData: PoneyData) {
-    console.log('WINNER : ', poneyData.name)
-    this.poneyComponentList.forEach((poneyComponent) => {
-      poneyComponent.stopRunning()
-    })
-  }
-
-  poneyTable: PoneyData[] = [
+  raceTable: RaceData[] = [
     {
       id: '0',
-      name: "Romain",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-yellow-running.gif"
+      name: 'Le Mans',
+      poneyIds: ['0', '1']
     },
     {
       id: '1',
-      name: "Antoine",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-purple-running.gif"
-    },
-    {
-      id: '2',
-      name: "Xavier",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-orange-running.gif"
+      name: 'Paris',
+      poneyIds: ['2', '3']
     }
   ]
 }

@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PoneyCreateComponent } from './components/poney-create/poney-create.component'
 import { MaterialComponentsModule } from './modules/material-components/material-components.module';
 import { UnitPipe } from './pipes/unit.pipe';
+import { OrderByPipe } from './pipes/order-by.pipe';
+import { RaceComponent } from './components/race/race.component';
+import { RacingPipe } from './pipes/racing.pipe';
 
 
 
@@ -17,7 +20,10 @@ import { UnitPipe } from './pipes/unit.pipe';
     PoneyComponent,
     RainbowDirective,
     PoneyCreateComponent,
-    UnitPipe
+    UnitPipe,
+    OrderByPipe,
+    RaceComponent,
+    RacingPipe
   ],
   imports: [
     BrowserModule,
