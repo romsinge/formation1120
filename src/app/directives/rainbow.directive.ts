@@ -19,7 +19,7 @@ export class RainbowDirective {
   }
 
   @HostListener('dblclick', ['$event'])
-  handleDblclick(event) {
+  handleDblclick(event: MouseEvent) {
     this.poneyData.distance += 10
   }
 
