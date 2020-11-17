@@ -1,9 +1,10 @@
 Bonjour {{ title }}
 
 <amb-poney
-  *ngFor="let poneyData of poneyTable"
+  *ngFor="let poneyData of poneyTable; let i = index"
   (win)="handleWin($event)"
   [poneyData]="poneyData"
   #poneyComponents
-  ambRainbow
+  [ambRainbow]="!(i%2)"
+  color="beige"
 ></amb-poney>

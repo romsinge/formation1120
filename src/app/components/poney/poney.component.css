@@ -8,3 +8,7 @@
 .container img {
   width: 100%;
 }
+
+:host {
+  display: block;
+}
