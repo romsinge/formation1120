@@ -24,6 +24,14 @@ export class DataService {
     }))
   }
 
+  saveRace(raceData: RaceData): Observable<RaceData> {
+    return this.http
+      .post<RaceData>(
+        'http://localhost:3000/races',
+        raceData
+      )
+  }
+
   constructor(private http: HttpClient) {}
 
   private _poneyTable: PoneyData[] = []

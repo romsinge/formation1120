@@ -3,6 +3,7 @@ import {
   MatButtonModule, 
   MatInputModule, 
   MatListModule, 
+  MatSelectModule, 
   MatToolbarModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ import { NgModule } from '@angular/core';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ]
 })
 export class MaterialComponentsModule { }

@@ -1,3 +1,38 @@
-<p>
-  race-create works!
-</p>
+<form (submit)="handleSubmit()" #raceForm="ngForm">
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Name"
+      name="name"
+      [ngModel]="raceData.name"
+      (ngModelChange)="raceData.name = $event"
+      required
+      #nameInput="ngModel"
+    >
+    <mat-error *ngIf="nameInput.hasError('required') && nameInput.touched">
+      Field is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select
+      placeholder="Poneys"
+      name="poneyIds"
+      multiple
+      [(ngModel)]="raceData.poneyIds"
+      required
+      #poneyIdsInput="ngModel"
+    >
+      <mat-option *ngFor="let poneyData of poneyTable$ | async" [value]="poneyData.id">
+        {{ poneyData.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="poneyIdsInput.hasError('required')">
+      Field is required
+    </mat-error>
+  </mat-form-field>
+
+  <button [disabled]="raceForm.invalid" mat-button type="submit">Save</button>
+
+</form>
