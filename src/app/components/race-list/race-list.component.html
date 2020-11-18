@@ -1,5 +1,5 @@
 <mat-nav-list>
-    <mat-list-item *ngFor="let raceData of raceTable" [routerLink]="['/race', raceData.id]">
+    <mat-list-item *ngFor="let raceData of raceTable$ | async" [routerLink]="['/race', raceData.id]">
         {{ raceData.name }}
     </mat-list-item>
 </mat-nav-list>

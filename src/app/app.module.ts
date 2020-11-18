@@ -14,6 +14,7 @@ import { RacingPipe } from './pipes/racing.pipe';
 import { RaceListComponent } from './components/race-list/race-list.component';
 import { RaceCreateComponent } from './components/race-create/race-create.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -34,7 +35,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialComponentsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

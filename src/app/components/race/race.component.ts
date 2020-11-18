@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChildren, QueryList, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { PoneyData } from 'src/app/models/poney-data.model';
 import { RaceData } from 'src/app/models/race-data.model';
 import { DataService } from 'src/app/services/data.service';
@@ -14,6 +15,7 @@ export class RaceComponent {
 
   @ViewChildren('poneyComponents') poneyComponentList: QueryList<PoneyComponent>
   raceData: RaceData 
+  poneyTable$: Observable<PoneyData[]>
 
   handleWin(poneyData: PoneyData) {
     console.log('WINNER : ', poneyData.name)
@@ -25,15 +27,17 @@ export class RaceComponent {
   constructor(private dataService: DataService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.poneyTable = this.dataService.poneyTable
+    this.poneyTable$ = this.dataService.poneyTable$
 
     this.route.paramMap.subscribe({
       next: (paramMap) => {
-        this.raceData = this.dataService.getRaceById(paramMap.get('id'))
+        this.dataService.getRaceById(paramMap.get('id')).subscribe({
+          next: raceData => {
+            this.raceData = raceData
+          }
+        })
       }
     })
   }
-
-  poneyTable: PoneyData[] = []
 
 }

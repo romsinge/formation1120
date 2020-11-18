@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { PoneyData } from '../models/poney-data.model';
 import { RaceData } from '../models/race-data.model';
 
@@ -7,51 +10,23 @@ import { RaceData } from '../models/race-data.model';
 })
 export class DataService {
 
-  get poneyTable() {
-    return this._poneyTable
+  get poneyTable$(): Observable<PoneyData[]> {
+    return this.http.get<PoneyData[]>('http://localhost:3000/poneys')
   }
 
-  get raceTable() {
-    return this._raceTable
+  get raceTable$(): Observable<RaceData[]> {
+    return this.http.get<RaceData[]>(`http://localhost:3000/races`)
   }
 
-  getRaceById(id: string): RaceData {
-    return this.raceTable.find(raceData => raceData.id === id)
+  getRaceById(id: string): Observable<RaceData> {
+    return this.raceTable$.pipe(map(raceTable => {
+      return raceTable.find(raceData => raceData.id === id)
+    }))
   }
 
-  private _poneyTable: PoneyData[] = [
-    {
-      id: '0',
-      name: "Romain",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-yellow-running.gif"
-    },
-    {
-      id: '1',
-      name: "Antoine",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-purple-running.gif"
-    },
-    {
-      id: '2',
-      name: "Xavier",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-orange-running.gif"
-    },
-    {
-      id: '3',
-      name: "Valerie",
-      image: "https://ng-ponyracer.ninja-squad.com/assets/images/pony-green-running.gif"
-    }
-  ]
+  constructor(private http: HttpClient) {}
 
-  private _raceTable: RaceData[] = [
-    {
-      id: '0',
-      name: 'Le Mans',
-      poneyIds: ['0', '1']
-    },
-    {
-      id: '1',
-      name: 'Paris',
-      poneyIds: ['2', '3']
-    }
-  ]
+  private _poneyTable: PoneyData[] = []
+
+  private _raceTable: RaceData[] = []
 }

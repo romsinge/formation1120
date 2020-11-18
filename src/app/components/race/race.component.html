@@ -1,7 +1,7 @@
-<mat-toolbar>{{ raceData.name }}</mat-toolbar>
+<mat-toolbar>{{ raceData?.name }}</mat-toolbar>
 
 <amb-poney
-  *ngFor="let poneyData of poneyTable | racing:raceData.poneyIds | orderBy:'name'; let i = index"
+  *ngFor="let poneyData of poneyTable$ | async | racing:raceData?.poneyIds | orderBy:'name'; let i = index"
   (win)="handleWin($event)"
   [poneyData]="poneyData"
   #poneyComponents
