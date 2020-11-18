@@ -15,6 +15,10 @@ export class DataService {
     return this._raceTable
   }
 
+  getRaceById(id: string): RaceData {
+    return this.raceTable.find(raceData => raceData.id === id)
+  }
+
   private _poneyTable: PoneyData[] = [
     {
       id: '0',
