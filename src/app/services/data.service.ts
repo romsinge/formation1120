@@ -32,6 +32,12 @@ export class DataService {
       )
   }
 
+  isPoneyNameAvailable(name: string): Observable<boolean> {
+    return this.poneyTable$.pipe(map(poneyTable => {
+      return !poneyTable.find(poneyData => poneyData.name === name)
+    }))
+  }
+
   constructor(private http: HttpClient) {}
 
   private _poneyTable: PoneyData[] = []

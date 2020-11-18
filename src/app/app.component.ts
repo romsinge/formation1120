@@ -11,11 +11,4 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent {
   title = 'AMBIENT-IT !';
-  raceTable: RaceData[] = []
-
-  constructor(private dataService: DataService) {}
-
-  ngOnInit() {
-    this.raceTable = this.dataService.raceTable
-  }
 }

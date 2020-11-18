@@ -1,13 +1,35 @@
-<form>
+<form [formGroup]="poneyForm">
 
   <mat-form-field>
-    <input type="text" matInput placeholder="Name">
+    <input 
+      type="text" 
+      matInput 
+      placeholder="Name"
+      formControlName="name"
+    >
+    <mat-error *ngIf="poneyForm.controls.name.hasError('required')">
+      Field is required
+    </mat-error>
+    <mat-error *ngIf="poneyForm.controls.name.hasError('nameNotAvailable')">
+      Name not available
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input type="text" matInput placeholder="Image">
+    <input 
+      type="text" 
+      matInput 
+      placeholder="Image"
+      formControlName="image"
+    >
+    <mat-error *ngIf="poneyForm.controls.image.hasError('required')">
+      Field is required
+    </mat-error>
+    <mat-error *ngIf="poneyForm.controls.image.hasError('gif')">
+      Extension should be .gif
+    </mat-error>
   </mat-form-field>
 
-  <button mat-button type="submit">Save</button>
+  <button (click)="handleSubmit()" [disabled]="poneyForm.invalid" mat-button type="submit">Save</button>
 
 </form>
