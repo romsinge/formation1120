@@ -11,6 +11,9 @@ import { UnitPipe } from './pipes/unit.pipe';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { RaceComponent } from './components/race/race.component';
 import { RacingPipe } from './pipes/racing.pipe';
+import { RaceListComponent } from './components/race-list/race-list.component';
+import { RaceCreateComponent } from './components/race-create/race-create.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -23,12 +26,15 @@ import { RacingPipe } from './pipes/racing.pipe';
     UnitPipe,
     OrderByPipe,
     RaceComponent,
-    RacingPipe
+    RacingPipe,
+    RaceListComponent,
+    RaceCreateComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialComponentsModule
+    MaterialComponentsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

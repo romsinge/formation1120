@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
   Bonjour {{ title }}
+  <button routerLink="/race-list" mat-button>Race List</button>
+  <button routerLink="/race-create" mat-button>Create Race</button>
+  <button routerLink="/poney-create" mat-button>Create Poney</button>
 </mat-toolbar>
 
-<amb-race
-  *ngFor="let raceData of raceTable" [raceData]="raceData"
-></amb-race>
+<router-outlet></router-outlet>
+
